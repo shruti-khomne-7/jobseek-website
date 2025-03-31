@@ -1,0 +1,41 @@
+
+body {
+  font-family: Julius Sans One, sans-serif;
+ width: 100%;
+ height: 100vh;
+ position: relative;
+ background: url('https://careerkarma.com/blog/wp-content/uploads/2022/04/Best-Office-Jobs-That-Dont-Require-a-Degree-A-Closer-Look.jpeg');
+ background-size: cover;
+ background-attachment: fixed;
+ }
+ body::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(206, 204, 204, 0.222); /* Grey overlay with 50% opacity */
+ backdrop-filter: blur(1px); /* Blur effect */
+ z-index: -1; /* Places it behind everything */
+}
+@media (max-width: 768px) {
+ body {
+   background-size: contain; /* Ensures no cropping on small screens */
+ }
+ 
+ body::before {
+   backdrop-filter: blur(5px); /* Reduces blur slightly for better visibility */
+ }
+}
+
+.container {
+width: 900px;
+height: 550px;
+position: relative; /* Ensures pseudo-element positions correctly */
+background: rgba(0, 0, 0, 0.134); /* Adds a semi-transparent white background */
+
+backdrop-filter: blur(30px); /* Applies the blur effect */
+padding: 2rem;
+border-radius: 10px; /* Optional: Makes edges rounded */
+}

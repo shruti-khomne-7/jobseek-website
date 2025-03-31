@@ -1,0 +1,16 @@
+  
+    const text = "WELCOME TO JOB SEEK!";
+    let i = 0;
+
+    function typeWriter() {
+        const heading = document.querySelector(".typing-text");
+        if (i < text.length) {
+            heading.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
+        } else {
+            heading.style.borderRight = "none"; // Remove cursor after typing
+        }
+    }
+
+    window.onload = typeWriter;
