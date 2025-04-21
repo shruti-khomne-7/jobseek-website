@@ -1,113 +1,185 @@
+<!--My Jobs-->
+
 <!doctype html>
 <html lang="en" xmlns:th="https://www.thymeleaf.com">
   <head>
-    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>JOB SEEK</title>
-   <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Julius+Sans+One&display=swap" rel="stylesheet">
-  </head>
-  <body>
-   
-    <style>
-      body {
-        font-family: "Julius Sans One", sans-serif;
-       overflow-x: hidden;
-       width: 100%;
-       height: 100vh;
-       position: relative;
-       background: url('https://www.betterup.com/hubfs/Marketing-manager-presenting-charts-on-screen-at-team-meeting-best-jobs-with-business-degree.jpg#keepProtocol');
-       background-size: cover;
-       background-attachment: fixed;
-       }
-       body::before {
-       content: "";
-       position: absolute;
-       top: 0;
-       left: 0;
-       width: 100%;
-       height: 100%;
-       background: rgba(128, 128, 128, 0.39); /* Grey overlay with 50% opacity */
-       backdrop-filter: blur(1px); /* Blur effect */
-       z-index: -1; /* Places it behind everything */
-     }
-     @media (max-width: 768px) {
-       body {
-         background-size: contain; /* Ensures no cropping on small screens */
-       }
-       
-       body::before {
-         backdrop-filter: blur(5px); /* Reduces blur slightly for better visibility */
-       }
-     }
-  
-     .container {
-      width: 900px;
-      height: 550px;
-      position: relative; /* Ensures pseudo-element positions correctly */
-      background: rgba(0, 0, 0, 0.134); /* Adds a semi-transparent white background */
-     
-      backdrop-filter: blur(30px); /* Applies the blur effect */
-      padding: 2rem;
-      border-radius: 10px; /* Optional: Makes edges rounded */
-  }
-  </style>
-   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand text-white" href="#">JOB SEEK</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="available_books">Available Jobs</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link text-white" href="my_books">Registered Jobs</a>
-        </li>
-      </ul>
-      <div>
-      		 <a class="nav-link text-white" href="book_register">New Job Registeration</a>
-      </div>
-    </div>
-  </div>
-</nav>
-
-  <div class="container my-5 col-md-6">
-  		<table class="table  table-striped table-hover">
-  <thead>
-    <tr>
-      <!--<th scope="col">Id</th>-->
-      <th scope="col">Role</th>
-      <th scope="col">Location</th>
-      <th scope="col">Package</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="b :${book}">
-     <!-- <td th:text="${b.id}"></td>-->
-      <td th:text="${b.name}"></td>
-      <td th:text="${b.author}"></td>
-      <td th:text="${b.price}"></td> 
-      <td><a style="color:rgb(247, 74, 74)" th:href="@{/deleteMyList/{id}(id=${b.id})}"><i class="fa-solid fa-trash"></i></a></td> 
-    </tr>
-  </tbody>
-</table>
-  </div>
-   
-   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
+    <title>JOB SEEK</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Junge&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bitter:ital,wght@0,100..900;1,100..900&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Poller+One&family=Quintessential&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Asap:ital,wght@0,100..900;1,100..900&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Birthstone&family=Bitter:ital,wght@0,100..900;1,100..900&family=Clicker+Script&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Serif+Display:ital@0;1&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oxygen:wght@300;400;700&family=PT+Sans+Narrow:wght@400;700&family=Poetsen+One&family=Poller+One&family=Praise&family=Prata&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Quintessential&family=Rozha+One&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/style.css">
+<style>
+   
+body {
+      
+      overflow-x: hidden;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      background: url('https://www.betterup.com/hubfs/Marketing-manager-presenting-charts-on-screen-at-team-meeting-best-jobs-with-business-degree.jpg#keepProtocol');
+      background-size: cover;
+      background-attachment: fixed;
+      }
+      body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(128, 128, 128, 0.39); /* Grey overlay with 50% opacity */
+      backdrop-filter: blur(1px); /* Blur effect */
+      z-index: -1; /* Places it behind everything */
+    }
+
+@media (max-width: 768px) {
+  body {
+    background-size: contain;
+  }
+
+  body::before {
+    backdrop-filter: blur(5px);
+  }
+}
+/* Button (non-blur, square) */
+.btn-grey {
+  background-color: #1D2024;
+  color: #bfbdbd;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-grey:hover {
+  background-color: #818181ae;
+  border: 0.5px solid #1d2024d4;
+  padding: 10px 16px;
+  
+  border-radius: 6px; /* Add border with thickness and color */
+  transition: 0.1s ease-in-out; /* Optional for smooth effect */
+}
+
+.glass-nav a {
+  color: rgb(167, 167, 167);
+  font-family: 'Junge', serif;
+}
+
+.nav-pill {
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: #1D2024;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-pill:hover {
+  background-color: #1D2024;
+  color: rgb(255, 255, 255);
+}
+
+
+/* Fixed-size glass box */
+.glass-box {
+  width: 900px;
+  height: 550px;
+  background: rgba(0, 0, 0, 0.134);
+  backdrop-filter: blur(30px);
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem auto;
+}
+
+/* Site title */
+.site-title {
+  font-family: 'Julius Sans One', sans-serif;
+  color: white;
+  font-size: 2rem;
+  font-weight: 1000;
+}
+
+/* Glass-style nav links */
+.glass-nav {
+  background-color: rgba(33, 37, 41, 0.7);
+}
+
+    </style>
+  </head>
+
+  <body>
+    <span class="site-title" style="font-family: 'Julius Sans One', sans-serif; color: #1D2024; font-size: 2rem; margin-left: 55px; font-weight: 1000; margin-top: 25px; display: inline-block;">
+      JOBSEEK
+    </span>
+    
+          <nav class="navbar custom-navbar px-2" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10;">
+            <div class="container d-flex justify-content-center align-items-center gap-5">
+              
+              <!-- Blurred Nav Links Only -->
+              <div class="glass-nav d-flex gap-4 align-items-center px-4 py-2" style="border-radius: 15.5px;color: rgb(167, 167, 167);">
+                <a class="nav-link nav-pill" href="/" style="font-family: junge, serif;">Home</a>
+                <a class="nav-link nav-pill" href="available_books" style="font-family: junge, serif;">Available Jobs</a>
+                <a class="nav-link nav-pill" href="my_books" style="font-family: junge, serif;">My Jobs</a>
+              </div>
+          
+            </div>
+          </nav>
+         
+          <a href="book_register" class="btn btn-grey" style="font-family:nunito, serif; top:20px;right:39px;position: absolute;">New Job Registration</a>
+    
+         <!-- Glass Table Container -->
+         <div class="container col-md-8 glass-box" style="margin-top:3.9rem; margin-bottom: 3.5rem; padding-top: 0.1%;">
+
+          <table class="table table-striped table-hover">
+            <div class="container my-0 col-md-8" style="padding-top:0%;"><!--padding for titles and container-->
+                <table class="table table-striped table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">Role</th>
+                              <th scope="col">Company</th>
+                              <th scope="col">Package</th>
+                              <th scope="col">Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr th:each="b :${book}">
+                                  <td th:text="${b.name}"></td>
+                                  <td th:text="${b.author}"></td>
+                                  <td th:text="${b.price}"></td>
+                                  <td>
+                                    <a th:href="@{/deleteMyList/{id}(id=${b.id})}" style="text-decoration: none; margin-left: 8%;">
+                                      <i class="fas fa-trash" style="color: rgba(255, 9, 9, 0.497);"></i>
+                                    </a>
+                                    
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

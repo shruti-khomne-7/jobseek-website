@@ -1,3 +1,5 @@
+<!--Home Page-->
+
 <!doctype html>
 <html lang="en" xmlns:th="https://www.thymeleaf.com">
   <head>
@@ -13,52 +15,437 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Federo&family=Julius+Sans+One&display=swap" rel="stylesheet">  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bitter:ital,wght@0,100..900;1,100..900&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Poller+One&family=Quintessential&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Asap:ital,wght@0,100..900;1,100..900&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Birthstone&family=Bitter:ital,wght@0,100..900;1,100..900&family=Clicker+Script&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Serif+Display:ital@0;1&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oxygen:wght@300;400;700&family=PT+Sans+Narrow:wght@400;700&family=Poetsen+One&family=Poller+One&family=Praise&family=Prata&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Quintessential&family=Rozha+One&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
-  <body>
-   
+<style>
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body {
+      background-image: url('images/Untitled.png');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+  
+
+/* Blur only inside this compact box */
+.glass-nav {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  border: none;
+}
+
+/* Aesthetic nav links */
+.nav-pill {
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: #1D2024;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-pill:hover {
+  background-color: #1D2024;
+  color: rgb(255, 255, 255);
+}
+
+/* Button (non-blur, square) */
+.btn-grey {
+  background-color: #1D2024;
+  color: #bfbdbd;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-grey:hover {
+  background-color: #818181ae;
+  border: 0.5px solid #1d2024d4;
+  padding: 10px 16px;
+  
+  border-radius: 6px; /* Add border with thickness and color */
+  transition: 0.1s ease-in-out; /* Optional for smooth effect */
+}
+
+
+.despri {
+     font-family: "Oxygen", serif; 
+      margin-top: -11px;
+      font-size: 17px;
+      color: #1D2024;
+      font-weight: 500;
+      animation: slideIn 1.5s ease forwards;
+      opacity: 0;
+      transform: translateX(-50px);
+      animation-delay: 2.5s; /* Start after typing animation completes */
+    }
     
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
     
-   
-   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <div class="container-fluid">
+    /* Text outline effect for JOB SEEK! */
+    .job-seek-outline {
+      -webkit-text-stroke: 2px black; /* Width and color of the stroke */
+      color: transparent; /* Makes the fill transparent */
+      font-weight: bold;
+    }
+    
+    /* Typing animation styling */
+    .typing-text {
+      font-family: Tajawal, sans-serif;
+      font-weight: 700;
+      font-size: 85px;
+      margin-top: 90px;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+  .homebg{
+  width:1900px;
+  left:0%;
+  right:0%;
+  top:300%;
+    position:absolute;
+  }
+
+@import url(https://fonts.bunny.net/css?family=space-grotesk:300,400,500,600,700);
+
+
+
+.brandsCarousel {
+    max-width: 60rem;
+    max-height: 6.25rem;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.brandsCarousel::before,
+.brandsCarousel::after {
+    content: "";
+    width: 6.25rem;
+    height: 6.25rem;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(183, 182, 185, 0) 100%);
+    position: absolute;
+    z-index: 2;
+}
+
+.brandsCarousel::before {
+    top: 0;
+    left: 0;
+}
+
+.brandsCarousel::after {
+    top: 0;
+    right: 0;
+    transform: rotateZ(180deg);
+}
+
+.carouselTrack {
+    width: calc(6.25rem * 20);
+    animation: infiniteLoop 10s linear infinite;
+    animation-fill-mode: forwards;
+    will-change: transform;
+}
+
+.brandLogo {
+    align-items: center;
+    margin: auto;
+    overflow: hidden;
+}
+
+.brandLogo svg {
+    fill: var(--lilac-dream);
+}
+
+@keyframes infiniteLoop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(calc(-6.25rem * 10), 0, 0);
+    }
+}
+
+.copyrightNotice {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--off-white);
+}
+
+#heartbeat {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    fill: var(--crimson-red);
+    animation: heartbeat .25s infinite alternate;
+}
+
+@keyframes heartbeat {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--lemon-zest);
+    position: relative;
+}
+
+a::after {
+    content: "";
+    width: 0;
+    height: 0.125rem;
+    left: 0;
+    bottom: 0;
+    transition: width .4s ease;
+    background: var(--lemon-zest);
+    position: absolute;
+}
+
+a:hover::after {
+    width: 100%;
+}
+ 
+</style>
+ 
+   <body>
+  <span class="site-title" style="font-family: Julius Sans One, sans-serif; color: #1D2024; position: absolute;top:25px;   font-size: 2rem; margin-left:55px;font-weight: 1000;">
+JOBSEEK</span> 
       
-    <a class="navbar-brand text-white" href="#">JOB SEEK</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<a href="book_register" class="btn btn-grey" style="font-family: nunito, serif; top:20px;right:39px;position: absolute;">New Job Registration</a>
     
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="available_books">Available Jobs</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link text-white" href="my_books">Registered Jobs</a>
-        </li>
-      </ul>
-      <div>
-      		 <a class="nav-link text-white" href="book_register">New Job Registeration</a>
+          <nav class="navbar custom-navbar px-2" style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); z-index: 10;">
+            <div class="container d-flex justify-content-center align-items-center gap-5">
+              
+              <!-- Blurred Nav Links Only -->
+              <div class="glass-nav d-flex gap-4 align-items-center px-4 py-2 rounded-5">
+                <a class="nav-link nav-pill" href="/" style="font-family: junge, serif;">Home</a>
+                <a class="nav-link nav-pill" href="available_books" style="font-family: junge, serif;">Available Jobs</a>
+                <a class="nav-link nav-pill" href="my_books" style="font-family: junge, serif;">My Jobs</a>
+              </div>
+          
+            </div>
+          </nav>
+          
+      <div class="container text-center my-5" style="text-align: center;">
+        <h1 class="typing-text"></h1>
+        
+        <h6 class="despri">
+          Explore thousands of available job listings across various industries, locations, and salary ranges. Whether you're looking for your next opportunity or posting a new job opening, our platform is designed to connect job seekers with the best opportunities.
+        </h6>
       </div>
-    </div>
+      
+      <section class="d-flex flex-column vh-100 justify-content-start align-items-center pt-5" style="margin-top:-50px;">
+        <div class="container brandsCarousel">
+          <div class="carouselWrapper">
+            <div class="carouselTrack">
+              <!-- First set of logos - increased size -->
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" width="100" height="50" alt="Google">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" width="100" height="50" alt="Microsoft">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="50" height="50" alt="Facebook">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" width="100" height="50" alt="YouTube">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" width="90" height="45" alt="Amazon">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" width="100" height="50" alt="Netflix">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" width="50" height="50" alt="Pinterest">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/DC_Comics_logo.svg" width="50" height="50" alt="DC Comics">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg" width="100" height="50" alt="Walmart">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" width="100" height="50" alt="Tesla">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" width="90" height="45" alt="IBM">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" width="90" height="45" alt="eBay">
+              </div>
+      
+              <!-- Duplicate set for infinite scroll - exact same order and sizing -->
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" width="100" height="50" alt="Google">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" width="100" height="50" alt="Microsoft">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" width="50" height="50" alt="Facebook">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" width="100" height="50" alt="YouTube">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" width="90" height="45" alt="Amazon">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" width="100" height="50" alt="Netflix">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" width="50" height="50" alt="Pinterest">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/DC_Comics_logo.svg" width="50" height="50" alt="DC Comics">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg" width="100" height="50" alt="Walmart">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Tesla_Motors.svg" width="100" height="50" alt="Tesla">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" width="90" height="45" alt="IBM">
+              </div>
+              <div class="brandLogo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" width="90" height="45" alt="eBay">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Improved styles with faster animation and adjusted for larger logos -->
+      <style>
+        .brandsCarousel {
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+          padding: 20px 0;
+        }
+      
+        .carouselWrapper {
+          width: 100%;
+          overflow: hidden;
+        }
+      
+        .carouselTrack {
+          display: flex;
+          animation: infiniteScroll 20s linear infinite; /* Faster animation */
+          /* Adjust width calculation for larger logos */
+          width: calc(12 * (100px + 60px) * 2); /* (number of logos * (logo width + margin)) * 2 sets */
+        }
+      
+        .brandLogo {
+          flex: 0 0 auto;
+          margin-right: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 100px; /* Increased min-width to match larger logos */
+        }
+      
+        .brandLogo img {
+          max-width: 100%;
+          object-fit: contain;
+        }
+      
+        @keyframes infiniteScroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+      </style>
+  
+  
   </div>
-</nav>
-
-   <div class="container text-center my-5">
-    <h1 class="typing-text"></h1>
-   		<h6>Explore thousands of available job listings across various industries, locations, and salary ranges. Whether you're looking for your next opportunity or posting a new job opening, our platform is designed to connect job seekers with the best opportunities.
-
-   		</h6>
-   
-   </div>
    
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-  
+   
+    <script>
+      const welcome = "WELCOME TO ";
+      const jobSeek = "JOBSEEK!";
+      let i = 0;
+      let j = 0;
+      let typingWelcome = true;
+      
+      function typeWriter() {
+        const heading = document.querySelector(".typing-text");
+        
+        // First type "WELCOME TO "
+        if (typingWelcome && i < welcome.length) {
+          heading.textContent += welcome.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        } 
+        // Then type "JOB SEEK!" with letter-by-letter animation
+        else if (typingWelcome) {
+          // Clear existing content and replace with complete "WELCOME TO "
+          heading.innerHTML = welcome;
+          typingWelcome = false;
+          // Add empty span for JOB SEEK with outline effect
+          heading.innerHTML += '<span class="job-seek-outline"></span>';
+          setTimeout(typeJobSeek, 200); // Small pause before starting JOB SEEK typing
+        }
+      }
+      
+      function typeJobSeek() {
+        const jobSeekSpan = document.querySelector(".job-seek-outline");
+        
+        if (j < jobSeek.length) {
+          jobSeekSpan.textContent += jobSeek.charAt(j);
+          j++;
+          setTimeout(typeJobSeek, 100);
+        } else {
+          // Remove cursor after all typing is complete
+          document.querySelector(".typing-text").style.borderRight = "none";
+        }
+      }
+      
+      window.onload = typeWriter;
+    </script>
   </body>
 </html>

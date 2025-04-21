@@ -1,3 +1,5 @@
+<!--New Job Registration-->
+
 <!doctype html>
 <html lang="en" xmlns:th="https://www.thymeleaf.com">
 <head>
@@ -16,14 +18,30 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bitter:ital,wght@0,100..900;1,100..900&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Poller+One&family=Quintessential&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bitter:ital,wght@0,100..900;1,100..900&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Poller+One&family=Quintessential&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Asap:ital,wght@0,100..900;1,100..900&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Birthstone&family=Bitter:ital,wght@0,100..900;1,100..900&family=Clicker+Script&family=Cookie&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Serif+Display:ital@0;1&family=Fjord+One&family=Gloock&family=Jaldi:wght@400;700&family=Junge&family=Kurale&family=Maitree:wght@200;300;400;500;600;700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Oxygen:wght@300;400;700&family=PT+Sans+Narrow:wght@400;700&family=Poetsen+One&family=Poller+One&family=Praise&family=Prata&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Quintessential&family=Rozha+One&family=Scope+One&family=Skranji:wght@400;700&family=Tajawal:wght@200;300;400;500;700;800;900&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/style.css">
+
 <h4 class="text-center"></h4><title>JOB SEEK</title>
+
 </head>
-<body>
-	<style>
-		body {
+
+<style>
+	
+	body {
 		 overflow-x: hidden;
+		 top: -10vh;
 		 width: 100%;
-		 height: 100vh;
+		 height: 103.5vh;
 		 position: relative;
 		 background: url('https://qtrac.com/media-uploads/2021/06/blog-8-what-is-a-virtual-queue.jpg');
 		 background-size: cover;
@@ -53,6 +71,7 @@
 	 .container {
 		width: 500px;
 		height: 550px;
+		top: 15vh;
     position: relative; /* Ensures pseudo-element positions correctly */
     background: rgba(255, 255, 255, 0.2); /* Adds a semi-transparent white background */
     border: 1px solid black;
@@ -90,51 +109,31 @@
 	
     color: #555;
 }
-	 </style>
+
+</style>
+<body>
 
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand text-white" href="#">JOB SEEK</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link active text-white"
-						aria-current="page" href="/">Home</a></li>
-					<li class="nav-item"><a class="nav-link text-white"
-						href="available_books">Available Jobs</a></li>
-					<li class="nav-item"><a class="nav-link text-white" href="my_books">My
-							Jobs</a></li>
-				</ul>
-				<div>
-					<a class="nav-link text-white" href="book_register">New Job Registeration</a>
-				</div>
-			</div>
-		</div>
-	</nav>
 
-	<div class="container my-5 p-5" style="border:1px solid black;">
+	<span class="site-title" style="font-family: 'Julius Sans One', sans-serif; color: #1D2024; position: absolute;top:35px;   font-size: 2rem; margin-left:55px;font-weight: 100;">
+		JOBSEEK</span> 
+		
+
+	<div class="container my-5 p-5" style="border:1px solid rgba(0, 0, 0, 0.03);font-family:Rozha ones;">
 		<h4 class="text-center">Edit Here</h4>
-		<form class="col-md-4 offset-md-4" th:action="@{/save}" method="post" th:object="${book}">
-			
-			<!--<input type="hidden" name="id" th:value="${book.id}"/>-->
-			<div class="mb-3">
-				<label for="price2" class="form-label">Company Name
-					</label> <input type="text" class="form-control" name="price2">	
-			</div>
+		<form class="col-md-4 offset-md-4" th:action="@{/save}" method="post">
 			<div class="mb-3">
 				<label for="name" class="form-label">Role
 					</label> <input type="text" class="form-control" name="name">	
 			</div>
 			
 			<div class="mb-3">
-				<label for="author" class="form-label">Location
+				<label for="author" class="form-label">Company
 					</label> <input type="text" class="form-control" name="author">	
+			</div>
+			<div class="mb-3">
+				<label for="price" class="form-label">Package
+					</label> <input type="text" class="form-control" name="price">	
 			</div>
 			
 			

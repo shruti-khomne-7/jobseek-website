@@ -1,59 +1,8 @@
-
-body {
-  font-family: Julius Sans One, sans-serif;
-overflow-x: hidden;
-width: 100%;
-height: 100vh;
-position: relative;
-background: url('https://sayvasolutions.com/wp-content/uploads/2022/10/iStock-1365436662_edit-1024x683.jpg');
-background-size: cover;
-background-attachment: fixed;
-}
-body::before {
-content: "";
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background: rgba(128, 128, 128, 0.39); /* Grey overlay with 50% opacity */
-backdrop-filter: blur(1px); /* Blur effect */
-z-index: -1; /* Places it behind everything */
-}
-@media (max-width: 768px) {
-body {
-  background-size: contain; /* Ensures no cropping on small screens */
-}
-
-body::before {
-  backdrop-filter: blur(5px); /* Reduces blur slightly for better visibility */
-}
-}
-
-.typing-text {
-      display: inline-block;
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #333;
-      border-right: 3px solid #333; /* Simulates a blinking cursor */
-      white-space: nowrap;
-      overflow: hidden;
-      width: fit-content;
-      animation: blinkCursor 0.7s infinite;
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
   }
-
-  @keyframes blinkCursor {
-      50% {
-          border-color: transparent;
-      }
-  }
-
-  .homebg{
-  width:1900px;
-  left:0%;
-  right:0%;
-  top:300%;
-    position:absolute;
-  }
-
-
+  
